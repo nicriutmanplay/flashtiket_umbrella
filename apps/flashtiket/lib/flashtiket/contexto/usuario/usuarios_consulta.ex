@@ -29,6 +29,12 @@ defmodule Flashtiket.UsuariosConsulta do
     Repo.one(query)
   end
 
+  def consultar_todos() do
+    query = from u in Flashtiket.Usuarios,
+            select: u
+    Repo.all(query)
+  end
+
   def actualizar_usuario(changeset) do
     Repo.update(changeset)
   end

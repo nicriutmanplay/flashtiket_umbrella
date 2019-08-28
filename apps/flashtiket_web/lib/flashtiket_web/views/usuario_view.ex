@@ -6,6 +6,10 @@ defmodule FlashtiketWeb.UsuarioView do
     render_one(usuario, UsuarioView, "usuario.json")
   end
 
+  def render("show_coleccion.json", %{usuario: usuario}) do
+    render_many(usuario, UsuarioView, "usuario.json")
+  end
+
   def render("usuario.json", %{usuario: usuario}) do
     %{
       status: "success",

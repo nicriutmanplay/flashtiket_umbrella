@@ -28,6 +28,17 @@ defmodule FlashtiketWeb.UsuarioController do
     end
   end
 
+  def obtener_todos(_conn, _params) do
+    case UsuariosConsulta.consultar_todos() do
+      nil ->
+          {:error, "404.json"}
+      usuario ->
+          {:success, UsuarioView, "show_coleccion.json", usuario: usuario}
+      {:error, reason} ->
+          {:error, reason}
+    end
+  end
+
   def actualizar(_conn,
   %{"usuario" =>  %{
       "id" => id,

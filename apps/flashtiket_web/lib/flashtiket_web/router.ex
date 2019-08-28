@@ -18,6 +18,7 @@ defmodule FlashtiketWeb.Router do
 
     post "/crear_usuario", UsuarioController, :crear
     get "/obtener_usuarios_cc", UsuarioController, :obtener
+    get "/obtener_usuarios", UsuarioController, :obtener_todos
     put "/actualizar_usuarios", UsuarioController, :actualizar
     delete "/borrar_usuario", UsuarioController, :borrar
 

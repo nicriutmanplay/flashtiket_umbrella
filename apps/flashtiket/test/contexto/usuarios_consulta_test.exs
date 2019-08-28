@@ -11,6 +11,14 @@ defmodule Flashtiket.UsuariosConsultaTest do
     "contraseña": "315"
   }
 
+  @dato2 %{
+    "nombre": "brandon",
+    "cc": "1069748843",
+    "celular": "3195244467",
+    "usuario": "nicriutman",
+    "contraseña": "315"
+  }
+
   setup do
     changeset = UsuariosConsulta.changeset(%Usuarios{}, @dato)
     usuario = Flashtiket.Repo.insert!(changeset)
@@ -43,6 +51,10 @@ defmodule Flashtiket.UsuariosConsultaTest do
 
   test "borrar usuario", %{usuario: usuario} do
     assert {:ok, struct} = UsuariosConsulta.borrar_usuario(%Usuarios{id: usuario.id})
+  end
+
+  test "consultar todos" do
+    assert usuario = UsuariosConsulta.consultar_todos()
   end
 
 end

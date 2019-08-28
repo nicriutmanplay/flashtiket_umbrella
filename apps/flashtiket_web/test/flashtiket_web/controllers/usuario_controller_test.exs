@@ -60,4 +60,10 @@ defmodule FlashtiketWeb.UsuarioControllerTest do
     assert json_response(conn, 200)["status"] == "success"
   end
 
+  test "obtener usuarios", %{conn: conn}do
+    conn = get(build_conn(), "/api/obtener_usuarios")
+    [respuesta | cola] = json_response(conn, 200)
+    assert respuesta["status"] == "success"
+  end
+
 end
