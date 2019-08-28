@@ -37,7 +37,7 @@ defmodule FlashtiketWeb.UsuarioControllerTest do
   end
 
   test "obtener usuario cc", %{conn: conn}do
-    conn = get(build_conn(), "/api/obtener_usuarios/#{conn.assigns.usuario.cc}")
+    conn = get(build_conn(), "/api/obtener_usuarios_cc", %{"cc" => conn.assigns.usuario.cc})
     assert json_response(conn, 200)["status"] == "success"
   end
 

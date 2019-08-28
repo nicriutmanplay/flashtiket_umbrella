@@ -8,8 +8,8 @@ defmodule FlashtiketWeb.ReservaControllerTest do
       "cc" => "1069748842",
       "id_planilla" => "1",
       "puesto" => "1",
-      "descripcion" => "nada",
-      "estado" => "sin confirmar"
+      "descripcion" => "debe todo",
+      "estado" => "reservado"
     }
   }
 
@@ -18,17 +18,15 @@ defmodule FlashtiketWeb.ReservaControllerTest do
       "cc" => "1069748842",
       "id_planilla" => "1",
       "puesto" => "2",
-      "descripcion" => "nada",
-      "estado" => "sin confirmar"
+      "descripcion" => "debe todo",
+      "estado" => "reservado"
     }
   }
 
   @reserva_error %{
     "reserva" => %{
       "cc" => "1069748842",
-      "id_planilla" => "1",
-      "puesto" => "1",
-      "descripcion" => "nada"
+      "id_planilla" => "1"
     }
   }
 
@@ -47,13 +45,13 @@ defmodule FlashtiketWeb.ReservaControllerTest do
   end
 
   test "obtener reserva cc", %{conn: conn}do
-    conn = get(build_conn(), "/api/obtener_reserva_cc/#{conn.assigns.reserva.cc}")
+    conn = get(build_conn(), "/api/obtener_reserva_cc", %{"cc" => conn.assigns.reserva.cc})
     [respuesta|lista] = json_response(conn, 200)
     assert respuesta["status"] == "success"  end
 
   test "obtener reserva id", %{conn: conn}do
     conn = post(build_conn(), "/api/crear_reserva", @reserva2)
-    conn = get(build_conn(), "/api/obtener_reserva_id/#{conn.assigns.reserva.id_planilla}")
+    conn = get(build_conn(), "/api/obtener_reserva_id", %{"id_planilla" => conn.assigns.reserva.id_planilla})
     [respuesta|lista] = json_response(conn, 200)
     assert respuesta["status"] == "success"
   end

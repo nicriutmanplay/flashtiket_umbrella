@@ -43,13 +43,13 @@ defmodule FlashtiketWeb.PlanillaControllerTest do
     assert json_response(conn, 200)["status"] == "success"
   end
 
-  test "obtener planilla fecha" do
-    conn = get(build_conn(), "/api/obtener_planilla_fecha", %{"fecha" => "26/08/2019"})
+  test "obtener planilla fecha", %{conn: conn} do
+    conn = get(build_conn(), "/api/obtener_planilla_fecha", %{"fecha" => conn.assigns.planilla.fecha})
     [respuesta|lista] = json_response(conn, 200)
     assert respuesta["status"] == "success"  end
 
-  test "obtener planilla fecha y hora" do
-    conn = get(build_conn(), "/api/obtener_planilla_fecha_y_hora",%{"fecha" => "26/08/2019", "hora" => "2:00pm"})
+  test "obtener planilla fecha y hora", %{conn: conn} do
+    conn = get(build_conn(), "/api/obtener_planilla_fecha_y_hora",%{"fecha" => conn.assigns.planilla.fecha, "hora" => conn.assigns.planilla.hora})
     [respuesta|lista] = json_response(conn, 200)
     assert respuesta["status"] == "success"  end
 

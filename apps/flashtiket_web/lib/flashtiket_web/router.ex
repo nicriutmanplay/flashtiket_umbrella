@@ -17,7 +17,7 @@ defmodule FlashtiketWeb.Router do
     pipe_through :api
 
     post "/crear_usuario", UsuarioController, :crear
-    get "/obtener_usuarios/:cc", UsuarioController, :obtener
+    get "/obtener_usuarios_cc", UsuarioController, :obtener
     put "/actualizar_usuarios", UsuarioController, :actualizar
     delete "/borrar_usuario", UsuarioController, :borrar
 
@@ -30,8 +30,8 @@ defmodule FlashtiketWeb.Router do
     delete "/borrar_planilla", PlanillaController, :borrar
 
     post "/crear_reserva", ReservaController, :crear
-    get "/obtener_reserva_cc/:cc", ReservaController, :obtener_cc
-    get "/obtener_reserva_id/:id", ReservaController, :obtener_id
+    get "/obtener_reserva_cc", ReservaController, :obtener_cc
+    get "/obtener_reserva_id", ReservaController, :obtener_id
     put "/actualizar_reserva", ReservaController, :actualizar
     delete "/borrar_reserva", ReservaController, :borrar
 

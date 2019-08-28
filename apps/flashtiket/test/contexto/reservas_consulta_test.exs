@@ -7,8 +7,8 @@ defmodule Flashtiket.ReservasConsultaTest do
     "cc": "1069748842",
     "id_planilla": "1",
     "puesto": "1",
-    "descripcion": "nada",
-    "estado": "sin confirmar"
+    "descripcion": "debe todo",
+    "estado": "reservado"
   }
 
   setup do

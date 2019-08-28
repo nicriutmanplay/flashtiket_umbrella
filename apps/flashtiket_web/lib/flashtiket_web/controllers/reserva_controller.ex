@@ -28,8 +28,8 @@ defmodule FlashtiketWeb.ReservaController do
     end
   end
 
-  def obtener_id(_conn, %{"id" => id_reserva}) do
-    case ReservasConsulta.consultar_id(id_reserva) do
+  def obtener_id(_conn, %{"id_planilla" => id_planilla}) do
+    case ReservasConsulta.consultar_id(id_planilla) do
       nil ->
           {:error, "404.json"}
       reserva ->
