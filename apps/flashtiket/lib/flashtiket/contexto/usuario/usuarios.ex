@@ -7,6 +7,7 @@ defmodule Flashtiket.Usuarios do
     field :celular, :string
     field :usuario, :string
     field :contraseña, :string
+    field :rol, :string
     timestamps()
   end
 end

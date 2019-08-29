@@ -38,8 +38,9 @@ defmodule FlashtiketWeb.Router do
 
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", FlashtiketWeb do
-  #   pipe_through :api
-  # end
+   scope "/", FlashtiketWeb do
+     pipe_through :browser
+
+     get "/", PageController, :init
+   end
 end
