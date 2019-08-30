@@ -6,7 +6,7 @@ defmodule FlashtiketWeb.UsuarioController do
 
   action_fallback(FlashtiketWeb.FallbackControler)
 
-  def crear(_conn, %{"usuario" => datos_usuario}) do
+  def crear(_conn, %{"usuarios" => datos_usuario}) do
     changeset = Flashtiket.UsuariosConsulta.changeset(%Usuarios{},datos_usuario)
     case changeset.valid? do
       true ->
